@@ -1,0 +1,12 @@
+services:
+  sql-server:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    restart: always
+    container_name: sql-server-etl
+    environment:
+      - SA_PASSWORD=yourStrong(!)Password
+      - ACCEPT_EULA=Y
+    ports:
+      - "1433:1433"
+    volumes:
+      - ./.containers/bot-db:/var/lib/sql/data
